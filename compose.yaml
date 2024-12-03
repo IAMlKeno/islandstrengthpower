@@ -1,0 +1,36 @@
+networks:
+  isp-network:
+    driver: bridge
+
+services:
+  cms:
+    container_name: isp_cms
+    build:
+      context: ./drupal
+      dockerfile: cms.Dockerfile
+    ports:
+      - 8086:80
+    expose:
+      - 80
+    volumes:
+      - ./drupal/files:/opt/drupal/web/sites/default/files
+      - ./drupal/custom/modules:/opt/drupal/web/modules/custom
+      - ./drupal/custom/themes:/opt/drupal/web/themes/custom
+      - ./drupal/config/sync:/opt/drupal/config/sync
+    networks:
+      - isp-network
+  db:
+    container_name: isp_db
+    image: arm64v8/mysql
+    environment:
+      MYSQL_DATABASE: 'islandstrength'
+      MYSQL_USER: 'admin'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    expose:
+      - 3306
+    restart: always
+    volumes:
+      - ./data/database/data:/var/lib/mysql
+    networks:
+      - isp-network 
