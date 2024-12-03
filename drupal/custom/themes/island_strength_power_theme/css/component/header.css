@@ -1,0 +1,20 @@
+.main-header {
+  background: url('/themes/custom/island_strength_power_theme/images/isp_banner.jpg') !important;
+  color: #fff;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  background-size: cover;
+  position: relative;
+}
+
+a.site-branding__logo > img {
+  border-radius: 90%;
+  max-width: 60%;
+}
+
+@media only screen and (max-width: 600px) {
+  a.site-branding__logo > img {
+    border-radius: 90%;
+    max-width: 50%;
+  }
+}

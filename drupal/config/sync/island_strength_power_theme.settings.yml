@@ -1,0 +1,49 @@
+features:
+  node_user_picture: false
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+logo:
+  use_default: 0
+  path: 'public://wtebglogo_0_0.jpg'
+favicon:
+  use_default: 0
+  path: 'public://isp_nobg_0.jpeg'
+  mimetype: image/jpeg
+no_of_slides: '3'
+show_slideshow: 1
+show_social_icon: 0
+facebook_url: ''
+twitter_url: ''
+linkedin_url: ''
+pinterest_url: ''
+rss_url: ''
+copyright_text: ''
+show_credit_link: 0
+slide_image_path1:
+  - '20'
+slide_title_1: 'Contest Prep'
+slide_description_1: 'Contest prep with Kaelan'
+slide_url_1: '#'
+slide_image_path2:
+  - '21'
+slide_title_2: Strongman
+slide_description_2: 'Upcoming strongman competitions'
+slide_url_2: /events
+slide_image_path3:
+  - '22'
+slide_title_3: Training
+slide_description_3: 'Offering group training for strongman and also personal training for both strongman and powerlifting. '
+slide_url_3: '#'
+slide_image_path4: {  }
+slide_title_4: ''
+slide_description_4: ''
+slide_url_4: '#'
+slide_image_path5: {  }
+slide_title_5: 'Personal Training'
+slide_description_5: 'Personal Training'
+slide_url_5: '#'
+slide_image_path6: {  }
+slide_title_6: ''
+slide_description_6: ''
+slide_url_6: ''

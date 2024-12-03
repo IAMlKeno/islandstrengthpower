@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: HlN7eAN2N4JIHsYv56V4E7sqC9bS609KwvGFjyD_mgk
+langcode: en
+uuid: 920e02ac-6944-4d35-a6be-aaf53b39c707
+name: 'Island Strength & Power'
+mail: noemail@mail.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /events
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: null
