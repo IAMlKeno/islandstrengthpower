@@ -39,12 +39,14 @@ function island_strength_power_theme_preprocess_html(array &$variables): void {
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function island_strength_power_theme_preprocess_page(array &$variables): void {
-  if ($variables['is_front']) {
-    // if (theme_get_setting('show_slideshow','drupal8_zymphonies_theme') == 1) {
-    if (theme_get_setting('show_slideshow','island_strength_power_theme') == 1) {
-      $variables['show_slideshow'] = 1;
-      $variables['slider_content'] = island_strength_power_theme_get_slider_content();
-    }
+  $show_slideshow = theme_get_setting('show_slideshow','island_strength_power_theme') == 1;
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  $page_list_str = theme_get_setting('show_on_pages','island_strength_power_theme');
+
+  if ($show_slideshow && in_array($result, explode(',', $page_list_str))) {
+    $variables['show_slideshow'] = 1;
+    $variables['slider_content'] = island_strength_power_theme_get_slider_content();
   }
 }
 
@@ -80,7 +82,8 @@ function island_strength_power_theme_get_slider_content() {
  * Implements hook_form_system_theme_settings_alter().
  */
 function island_strength_power_theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
-  
+  if ($form['drupal8_zymphonies_theme_settings'] != NULL) unset($form['drupal8_zymphonies_theme_settings']);
+
   //Slide show configure 
   $form['island_strength_power_theme_settings']['slideshow'] = [
     '#type' => 'details',
@@ -101,6 +104,19 @@ function island_strength_power_theme_form_system_theme_settings_alter(&$form, Fo
     '#default_value' => theme_get_setting('show_slideshow'),
     '#description'   => t("Show/Hide Slideshow in home page"),
   ];
+  // REVISIT: convert to multi select list... (mobile friendly?) or list of checkboxes
+  $form['island_strength_power_theme_settings']['slideshow']['show_on_pages'] = [
+    '#type' => 'textfield',
+    '#title' => t('Show slider on these pages'),
+    '#default_value' => theme_get_setting('show_on_pages'),
+    '#description' => t('A comma separated list of pages to show the slider on. ex. /events,/about-us'),
+    '#states' => [
+        'visible' => [
+          ':input[name="show_slideshow"]' => ['checked' => TRUE],
+        ],
+      ],
+  ];
+
   $form['island_strength_power_theme_settings']['slideshow']['slide'] = [
     '#markup' => t('Change the banner image, title, description and link using below fieldset'),
   ];

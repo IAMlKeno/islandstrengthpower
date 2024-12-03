@@ -1,5 +1,22 @@
 body {
-  background-color: #c3b68a !important;;
+  background-color: #c3b68a !important;
+}
+
+
+.flexslider {
+  width: 80%;
+  /* margin: auto !important; */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@media only screen and (max-width: 600px) {
+  .flexslider {
+  }
+}
+.flexslider .slides img {
+  max-height: 500px;
+  max-width: 60%;
+  margin: auto;
 }
 .flex-viewport {
   max-height: 500px;
