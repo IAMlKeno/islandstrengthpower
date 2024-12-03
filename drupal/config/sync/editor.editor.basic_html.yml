@@ -1,0 +1,48 @@
+uuid: c5b09efc-fc13-460d-9327-bfb375edb89f
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - ckeditor5
+format: basic_html
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - heading
+      - bold
+      - italic
+      - underline
+      - '|'
+      - link
+      - blockQuote
+      - bulletedList
+      - numberedList
+      - drupalInsertImage
+      - indent
+      - outdent
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_imageResize:
+      allow_resize: true
+    ckeditor5_list:
+      properties:
+        reversed: true
+        startIndex: true
+      multiBlock: true
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: null
+  max_dimensions:
+    width: null
+    height: null

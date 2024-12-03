@@ -1,16 +1,16 @@
 _core:
   default_config_hash: 3qY7PfXvJcCtBPQpb9FxxBgXtUGFzx8JVakfWiNNYzw
 favicon:
-  mimetype: image/vnd.microsoft.icon
-  path: ''
+  mimetype: image/jpeg
+  path: 'public://isp_nobg_0.jpeg'
   url: ''
-  use_default: true
+  use_default: false
 features:
   comment_user_picture: true
   comment_user_verification: true
   favicon: true
   node_user_picture: false
 logo:
-  path: ''
+  path: 'public://wtebglogo_0_0.jpg'
   url: null
-  use_default: true
+  use_default: false
