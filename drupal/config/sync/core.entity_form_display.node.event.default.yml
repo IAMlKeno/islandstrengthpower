@@ -6,11 +6,13 @@ dependencies:
     - field.field.node.event.field_banner_image
     - field.field.node.event.field_event_date
     - field.field.node.event.field_location
+    - field.field.node.event.field_registration_price
     - field.field.node.event.layout_builder__layout
     - image.style.thumbnail
     - node.type.event
   module:
     - image
+    - path
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -43,6 +45,19 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_registration_price:
+    type: number
+    weight: 125
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox

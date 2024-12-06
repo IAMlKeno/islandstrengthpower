@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.event.field_banner_image
     - field.field.node.event.field_event_date
     - field.field.node.event.field_location
+    - field.field.node.event.field_registration_price
     - field.field.node.event.layout_builder__layout
     - node.type.event
   module:
@@ -130,4 +131,5 @@ hidden:
   field_banner_image: true
   field_event_date: true
   field_location: true
+  field_registration_price: true
   layout_builder__layout: true

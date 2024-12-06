@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.event.field_banner_image
     - field.field.node.event.field_event_date
     - field.field.node.event.field_location
+    - field.field.node.event.field_registration_price
     - field.field.node.event.layout_builder__layout
     - node.type.event
   module:
@@ -96,6 +97,25 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 1
             additional: {  }
+          a7a7cce3-0158-4bdc-874b-252d7345a6c8:
+            uuid: a7a7cce3-0158-4bdc-874b-252d7345a6c8
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_registration_price'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: number_decimal
+                label: above
+                settings:
+                  thousand_separator: ''
+                  decimal_separator: .
+                  scale: 2
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
         third_party_settings: {  }
 id: node.event.default
 targetEntityType: node
@@ -139,6 +159,17 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 104
+    region: content
+  field_registration_price:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 105
     region: content
   links:
     settings: {  }
