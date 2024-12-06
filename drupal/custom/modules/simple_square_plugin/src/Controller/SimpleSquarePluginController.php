@@ -6,17 +6,15 @@ namespace Drupal\simple_square_plugin\Controller;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\simple_square_plugin\SquareClient;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Returns responses for Simple square plugin routes.
  */
 final class SimpleSquarePluginController extends ControllerBase {
-
-  public const SQUARE_APP_ID = 'sandbox-sq0idb-LQ50O2bQ13-QByK-T2eeeg';
-  public const SQUARE_TOKEN = 'EAAAl9wj9hn92z-WK6dCNnTKQb7q79JQ62SMxdb5g301lsIluUKl1unDpxR5TzeL';
-  public const SQUARE_LOCATION = 'LR97C0MXRZ3TQ';
 
   /**
    * The controller constructor.
@@ -38,10 +36,9 @@ final class SimpleSquarePluginController extends ControllerBase {
    * Builds the response.
    */
   public function __invoke(): array {
-
-    $build['content'] = [
-      '#type' => 'item',
-      '#markup' => '<div class="square-viewport"><div id="card-container">Card container!</div></div>',
+    $build = [
+      '#theme' => 'simple_square_portal',
+      '#output' => 'test',
       '#attached' => [
         'library' => [
           'simple_square_plugin/simple_square_lib',
@@ -50,6 +47,18 @@ final class SimpleSquarePluginController extends ControllerBase {
     ];
 
     return $build;
+  }
+
+  /**
+   * Receive and process the payment.
+   *
+   * @param Request $req
+   */
+  public function processPayment(Request $req) {
+    $square = new SquareClient();
+    $response = $square->processPayment($req->getContent());
+
+    return new JsonResponse($response, $response['status']);
   }
 
 }

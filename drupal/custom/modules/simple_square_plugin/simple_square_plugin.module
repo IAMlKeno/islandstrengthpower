@@ -20,9 +20,16 @@ function simple_square_plugin_page_attachments_alter(array &$attachments) {
       ],
       'simple_squaree',
     ];
-    $attachments['#attached']['html_head'][] = [
-      ['#tag' => 'script', '#attributes' => ['type' => 'text/javascript'], '#value' => \Drupal\Core\Render\Markup::create('alert("i am here twice");')],
-      'key_for_this_snippet',
-    ];
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function simple_square_plugin_theme($existing, $type, $theme, $path) {
+  return [
+    'simple_square_portal' => [
+      'variables' => ['output' => NULL,],
+    ],
+  ];
 }

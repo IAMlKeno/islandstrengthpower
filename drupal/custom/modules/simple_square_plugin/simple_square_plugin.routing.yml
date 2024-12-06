@@ -5,3 +5,13 @@ simple_square_plugin.req_payment:
     _controller: '\Drupal\simple_square_plugin\Controller\SimpleSquarePluginController'
   requirements:
     _permission: 'access content'
+
+simple_square_plugin.process_payment:
+  path: '/simple-square-plugin/process-payment'
+  methods:
+    - POST
+  defaults:
+    _title: 'Process Payment'
+    _controller: '\Drupal\simple_square_plugin\Controller\SimpleSquarePluginController::processPayment'
+  requirements:
+    _permission: 'access content'
