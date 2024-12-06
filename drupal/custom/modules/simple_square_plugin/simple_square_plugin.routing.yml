@@ -1,0 +1,7 @@
+simple_square_plugin.req_payment:
+  path: '/simple-square-plugin/req-payment'
+  defaults:
+    _title: 'Req Payment'
+    _controller: '\Drupal\simple_square_plugin\Controller\SimpleSquarePluginController'
+  requirements:
+    _permission: 'access content'

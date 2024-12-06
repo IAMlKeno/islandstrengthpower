@@ -1,0 +1,5 @@
+name: 'Simple Square Plugin'
+type: module
+description: 'A simple web interface to interact with Square&#039;s API'
+package: Custom
+core_version_requirement: ^10 || ^11

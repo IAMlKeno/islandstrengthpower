@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Simple Square Plugin module.
+ */
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function simple_square_plugin_page_attachments_alter(array &$attachments) {
+  if (\Drupal::routeMatch()->getRouteName() == 'simple_square_plugin.req_payment') {
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'script',
+        '#attributes' => [
+          'type' => 'text/javascript',
+          'src' => 'https://sandbox.web.squarecdn.com/v1/square.js',
+        ],
+      ],
+      'simple_squaree',
+    ];
+    $attachments['#attached']['html_head'][] = [
+      ['#tag' => 'script', '#attributes' => ['type' => 'text/javascript'], '#value' => \Drupal\Core\Render\Markup::create('alert("i am here twice");')],
+      'key_for_this_snippet',
+    ];
+  }
+}
