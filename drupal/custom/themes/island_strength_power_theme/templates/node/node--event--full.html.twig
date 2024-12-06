@@ -81,7 +81,24 @@
   </div>
 
   <div class="event-actions">
-    <button class="btn">Register</button>
+    <button class="btn registration-btn" id="registration-btn">Register Now!</button>
+    <input type='hidden' name="registration-val" value='{{ node.field_registration_price.value }}' />
   </div>
 
 </article>
+
+<script>
+// TODO... don't do this...
+  const btn = document.getElementById('registration-btn');
+  const val = document.getElementsByName('registration-val')[0].value;
+  const nid = {{ node.nid.value }};
+  const title = "{{ node.title.value }}";
+
+  btn.addEventListener('click', () => {
+    console.log(`evt value: ${val}`);
+    console.log(`nid value: ${nid}`);
+    console.log(`title value: ${title}`);
+
+    window.location.assign(`/simple-square-plugin/req-payment/${val}/${title}`);
+  });
+</script>

@@ -29,7 +29,10 @@ function simple_square_plugin_page_attachments_alter(array &$attachments) {
 function simple_square_plugin_theme($existing, $type, $theme, $path) {
   return [
     'simple_square_portal' => [
-      'variables' => ['output' => NULL,],
+      'variables' => [
+        'output' => NULL,
+        'registration_price' => NULL,
+      ],
     ],
   ];
 }

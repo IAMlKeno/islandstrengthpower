@@ -35,10 +35,13 @@ final class SimpleSquarePluginController extends ControllerBase {
   /**
    * Builds the response.
    */
-  public function __invoke(): array {
+  public function __invoke($event = '$60.00', $evtName = 'N/A'): array {
     $build = [
       '#theme' => 'simple_square_portal',
-      '#output' => 'test',
+      '#output' => $this->t("Register for @evt", [
+        '@evt' => $evtName,
+      ]),
+      '#registration_price' => $event,
       '#attached' => [
         'library' => [
           'simple_square_plugin/simple_square_lib',

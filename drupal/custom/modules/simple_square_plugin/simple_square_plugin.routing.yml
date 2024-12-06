@@ -1,8 +1,14 @@
 simple_square_plugin.req_payment:
-  path: '/simple-square-plugin/req-payment'
+  path: '/simple-square-plugin/req-payment/{event}/{evtName}'
   defaults:
     _title: 'Req Payment'
     _controller: '\Drupal\simple_square_plugin\Controller\SimpleSquarePluginController'
+  options:
+    parameters:
+      event:
+        type: string
+      eventName:
+        type: string
   requirements:
     _permission: 'access content'
 
