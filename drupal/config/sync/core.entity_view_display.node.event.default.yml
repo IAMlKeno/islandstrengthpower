@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.event.field_event_location
     - field.field.node.event.field_event_type
     - field.field.node.event.field_location
+    - field.field.node.event.field_registration_form
     - field.field.node.event.field_registration_price
     - field.field.node.event.layout_builder__layout
     - node.type.event
@@ -16,6 +17,7 @@ dependencies:
     - layout_builder
     - layout_discovery
     - user
+    - webform
 third_party_settings:
   layout_builder:
     enabled: true
@@ -145,6 +147,26 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 4
             additional: {  }
+          06733217-07fc-4609-a435-a0b3003576b6:
+            uuid: 06733217-07fc-4609-a435-a0b3003576b6
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_registration_form'
+              label: 'Registration Form'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: webform_entity_reference_entity_view
+                label: hidden
+                settings:
+                  source_entity: true
+                  lazy: false
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
         third_party_settings: {  }
 id: node.event.default
 targetEntityType: node
@@ -205,6 +227,15 @@ content:
     third_party_settings: {  }
     weight: 104
     region: content
+  field_registration_form:
+    type: webform_entity_reference_entity_view
+    label: above
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 108
+    region: first
   field_registration_price:
     type: number_decimal
     label: above
