@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.event.field_banner_image
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_location
     - field.field.node.event.field_event_type
     - field.field.node.event.field_location
     - field.field.node.event.field_registration_price
@@ -21,14 +22,15 @@ third_party_settings:
     allow_custom: true
     sections:
       -
-        layout_id: layout_onecol
+        layout_id: layout_twocol_section
         layout_settings:
-          label: 'Hero Image'
+          label: 'Promotion and Info'
           context_mapping: {  }
+          column_widths: 75-25
         components:
           f7d87cd4-6bcb-46e7-bd5e-a67cfaa6634c:
             uuid: f7d87cd4-6bcb-46e7-bd5e-a67cfaa6634c
-            region: content
+            region: first
             configuration:
               id: 'field_block:node:event:field_banner_image'
               label: 'Banner Image'
@@ -48,56 +50,20 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 0
             additional: {  }
-          e92fa196-00f9-43c0-81ad-7a340e5c1af4:
-            uuid: e92fa196-00f9-43c0-81ad-7a340e5c1af4
-            region: content
-            configuration:
-              id: 'field_block:node:event:field_event_type'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: entity_reference_label
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-            weight: 1
-            additional: {  }
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings:
-          label: 'Event Information'
-          context_mapping: {  }
-        components:
-          e5e23885-7060-4141-81b9-2a1cf35603cf:
-            uuid: e5e23885-7060-4141-81b9-2a1cf35603cf
-            region: content
-            configuration:
-              id: 'field_block:node:event:field_location'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            weight: 0
-            additional: {  }
           b8e040eb-bf6e-447d-b214-b09b35cdf2fc:
             uuid: b8e040eb-bf6e-447d-b214-b09b35cdf2fc
-            region: content
+            region: second
             configuration:
               id: 'field_block:node:event:field_event_date'
-              label_display: '0'
+              label: 'When: '
+              label_display: visible
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: timestamp
-                label: above
+                label: hidden
                 settings:
                   date_format: medium
                   custom_date_format: ''
@@ -111,9 +77,55 @@ third_party_settings:
                     past_format: '@interval ago'
                     granularity: 2
                     refresh: 60
+                    description: ''
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          e92fa196-00f9-43c0-81ad-7a340e5c1af4:
+            uuid: e92fa196-00f9-43c0-81ad-7a340e5c1af4
+            region: second
+            configuration:
+              id: 'field_block:node:event:field_event_type'
+              label: 'What:'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: hidden
+                settings:
+                  link: false
                 third_party_settings: {  }
             weight: 1
             additional: {  }
+          e2ec3f4e-c982-402e-b70b-8ff836c5f132:
+            uuid: e2ec3f4e-c982-402e-b70b-8ff836c5f132
+            region: second
+            configuration:
+              id: 'field_block:node:event:field_event_location'
+              label: 'Where:'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: hidden
+                settings:
+                  view_mode: teaser
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: 'Event Information'
+          context_mapping: {  }
+        components:
           a7a7cce3-0158-4bdc-874b-252d7345a6c8:
             uuid: a7a7cce3-0158-4bdc-874b-252d7345a6c8
             region: content
@@ -131,7 +143,7 @@ third_party_settings:
                   scale: 2
                   prefix_suffix: true
                 third_party_settings: {  }
-            weight: 2
+            weight: 4
             additional: {  }
         third_party_settings: {  }
 id: node.event.default
@@ -168,6 +180,14 @@ content:
         refresh: 60
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_event_location:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
     region: content
   field_event_type:
     type: entity_reference_label
