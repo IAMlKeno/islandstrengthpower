@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.event.field_banner_image
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_type
     - field.field.node.event.field_location
     - field.field.node.event.field_registration_price
     - field.field.node.event.layout_builder__layout
@@ -35,6 +36,12 @@ content:
   field_event_date:
     type: datetime_timestamp
     weight: 123
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_event_type:
+    type: options_buttons
+    weight: 126
     region: content
     settings: {  }
     third_party_settings: {  }

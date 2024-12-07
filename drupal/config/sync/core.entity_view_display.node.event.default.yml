@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.event.field_banner_image
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_type
     - field.field.node.event.field_location
     - field.field.node.event.field_registration_price
     - field.field.node.event.layout_builder__layout
@@ -46,6 +47,22 @@ third_party_settings:
                     attribute: lazy
                 third_party_settings: {  }
             weight: 0
+            additional: {  }
+          e92fa196-00f9-43c0-81ad-7a340e5c1af4:
+            uuid: e92fa196-00f9-43c0-81ad-7a340e5c1af4
+            region: content
+            configuration:
+              id: 'field_block:node:event:field_event_type'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 1
             additional: {  }
         third_party_settings: {  }
       -
@@ -151,6 +168,14 @@ content:
         refresh: 60
     third_party_settings: {  }
     weight: 103
+    region: content
+  field_event_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
     region: content
   field_location:
     type: string
