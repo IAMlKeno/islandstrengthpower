@@ -13,39 +13,56 @@ title: 'Event Signup Form'
 description: ''
 categories: {  }
 elements: |-
-  athlete_container:
-    '#type': webform_flexbox
-    first_name:
-      '#type': textfield
-      '#title': 'First name'
-      '#required': true
-    last_name:
-      '#type': textfield
-      '#title': 'Last name'
-      '#required': true
-    date_of_birth:
-      '#type': date
-      '#title': 'Date of Birth'
-      '#required': true
-  wrpf_container:
-    '#type': webform_flexbox
-    wrpf:
-      '#type': textfield
-      '#title': 'WRPF Membership #'
-      '#description': '<p>If you do not have one now, you will need to provide a valid Canadian WRPF membership # on the day of the competition.</p>'
-      '#pattern': \d+
-  shirt_container:
-    '#type': webform_flexbox
-    shirt_size:
-      '#type': radios
-      '#title': 'Shirt Size'
-      '#options': size
-      '#options_display': three_columns
-      '#required': true
-  event:
-    '#type': hidden
-    '#title': event
-    '#prepopulate': true
+  athlete_information:
+    '#type': webform_wizard_page
+    '#title': 'Athlete Information'
+    athlete_container:
+      '#type': webform_flexbox
+      first_name:
+        '#type': textfield
+        '#title': 'First name'
+        '#required': true
+      last_name:
+        '#type': textfield
+        '#title': 'Last name'
+        '#required': true
+      date_of_birth:
+        '#type': date
+        '#title': 'Date of Birth'
+        '#required': true
+    wrpf_container:
+      '#type': webform_flexbox
+      wrpf:
+        '#type': textfield
+        '#title': 'WRPF Membership #'
+        '#description': '<p>If you do not have one now, you will need to provide a valid Canadian WRPF membership # on the day of the competition.</p>'
+        '#pattern': \d+
+    shirt_container:
+      '#type': webform_flexbox
+      shirt_size:
+        '#type': radios
+        '#title': 'Shirt Size'
+        '#options': size
+        '#options_display': three_columns
+        '#required': true
+    event:
+      '#type': hidden
+      '#title': event
+      '#prepopulate': true
+  payment:
+    '#type': webform_wizard_page
+    '#title': Payment
+    payment_form:
+      '#type': stripe_payment
+      '#title': 'Payment form'
+      '#stripe_source': custom
+      '#stripe_amount': '1.00'
+      '#stripe_currency': cad
+      '#stripe_customer_attributes': ''
+      '#stripe_appearance': ''
+      '#stripe_payment_intent_config': |-
+        automatic_payment_methods:
+          enabled: true
 css: ''
 javascript: ''
 settings:
@@ -63,7 +80,7 @@ settings:
   form_open_message: ''
   form_close_message: ''
   form_exception_message: ''
-  form_previous_submissions: true
+  form_previous_submissions: false
   form_confidential: false
   form_confidential_message: ''
   form_disable_remote_addr: false

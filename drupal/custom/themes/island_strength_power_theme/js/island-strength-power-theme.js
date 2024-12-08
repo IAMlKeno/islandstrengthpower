@@ -14,8 +14,19 @@
 
       if (registrationForm != null) {
         console.log('It works!');
-        registrationForm.classList.add('hidden');
+        const path = window.location.pathname;
+        if (path.match(/\/event\/\w+/) != null) {
+          registrationForm.classList.add('hidden');
+        }
+      }
 
+      const paymentContainer = document.getElementsByClassName('payment-container').item(0);
+      if (paymentContainer != null) {
+        // const html = '<h2>Payment-Container</h2>';
+        // const iframe = document.createElement('iframe');
+        // // iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(html);
+        // iframe.src = `/simple-square-plugin/req-payment/45/ISPEvent`;
+        // paymentContainer.appendChild(iframe);
       }
 
     }
