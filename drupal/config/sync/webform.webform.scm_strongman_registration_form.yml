@@ -1,4 +1,4 @@
-uuid: 3b6187ab-8ff6-4f70-8d78-73e06b1b448f
+uuid: 8e31b583-157a-4907-b5f8-d21b4fc40449
 langcode: en
 status: open
 dependencies: {  }
@@ -8,158 +8,84 @@ close: null
 uid: 1
 template: false
 archive: false
-id: event_signup_form
-title: 'WRPF Powerlifting Registration Form'
+id: scm_strongman_registration_form
+title: 'SCM Strongman Registration Form'
 description: ''
 categories:
   - 'Event Registration'
 elements: |-
-  athlete_container:
-    '#type': webform_flexbox
+  athlete:
+    '#type': container
     first_name:
       '#type': textfield
       '#title': 'First name'
-      '#required': true
+      '#title_display': before
+      '#autocomplete': 'off'
     last_name:
       '#type': textfield
       '#title': 'Last name'
-      '#required': true
-    date_of_birth:
-      '#type': date
-      '#title': 'Date of Birth'
-      '#required': true
-      '#flex': 2
-    age_at_time_of_competition:
-      '#type': number
-      '#title': 'Age at time of competition'
-      '#flex': 2
-      '#min': 1
-  contact:
-    '#type': webform_flexbox
-    email:
+    e_mail:
       '#type': email
-      '#title': Email
-      '#placeholder': you@example.com
-    phone_number:
-      '#type': tel
-      '#title': 'Phone number'
-    mailing_address:
-      '#type': textarea
-      '#title': 'Mailing Address'
-  biometric:
-    '#type': webform_flexbox
-    gender:
-      '#type': radios
-      '#title': Sex
-      '#options': sex
-    tested_or_untested:
-      '#type': radios
-      '#title': 'Tested or Untested'
-      '#options':
-        'Tested (150)': 'Tested (150)'
-        'Untested (125)': 'Untested (125)'
-    weight_class:
-      '#type': webform_entity_radios
-      '#title': 'Weight Class'
-      '#options_display': three_columns
-      '#target_type': taxonomy_term
-      '#selection_handler': 'default:taxonomy_term'
-      '#selection_settings':
-        target_bundles:
-          weight_class_wrpf: weight_class_wrpf
-        sort:
-          field: name
-          direction: asc
+      '#title': 'E-mail address'
+      '#autocomplete': ''
   competition_specifics:
     '#type': webform_flexbox
-    division:
-      '#type': webform_entity_radios
-      '#title': Division
-      '#options_display': two_columns
+    weight_class:
+      '#type': webform_entity_select
+      '#title': 'Weight Class'
       '#target_type': taxonomy_term
       '#selection_handler': 'default:taxonomy_term'
       '#selection_settings':
         target_bundles:
-          division: division
+          weight_class_scm: weight_class_scm
         sort:
           field: name
           direction: asc
-    age_category:
-      '#type': webform_entity_checkboxes
-      '#title': 'Age Category'
-      '#multiple': 2
-      '#description': '<p><span style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);color:rgb(32, 33, 36);display:inline !important;float:none;font-family:docs-Roboto;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">You are allowed to do multiple categories. If you do this, this is considered a crossover and will have to include $30 per cross over.</span></p>'
-      '#options_display': three_columns
-      '#target_type': taxonomy_term
-      '#selection_handler': 'default:taxonomy_term'
-      '#selection_settings':
-        target_bundles:
-          age_category: age_category
-        sort:
-          field: name
-          direction: asc
-    competition:
-      '#type': webform_entity_checkboxes
-      '#title': Competition
-      '#description': '<p><span style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);color:rgb(32, 33, 36);display:inline !important;float:none;font-family:docs-Roboto;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">You can do multiple categories, if so this is considered a crossover and will have to include $30 per cross over</span></p>'
-      '#options_display': two_columns
-      '#target_type': taxonomy_term
-      '#selection_handler': 'default:taxonomy_term'
-      '#selection_settings':
-        target_bundles:
-          competition: competition
-        sort:
-          field: name
-          direction: asc
-  wrpf_container:
-    '#type': webform_flexbox
-    wrpf:
-      '#type': textfield
-      '#title': 'WRPF Membership # (if valid)'
-      '#description': '<p>If you do not have one now, you can &nbsp;go to <a href="https://wrpfcan.ca">wrpfcan.ca</a> to obtain one. You <em>must have</em> a valid Canadian WRPF membership # on the day of the competition.</p>'
-      '#pattern': \d+
-  shirt_container:
-    '#type': webform_flexbox
     shirt_size:
-      '#type': radios
-      '#title': 'Shirt Size'
-      '#description': '<p>Included with registration</p>'
+      '#type': webform_radios_other
+      '#title': 'T-Shirt Size'
       '#options': size
-      '#options_display': three_columns
-      '#required': true
-  event:
-    '#type': hidden
-    '#title': event
-    '#prepopulate': true
-  payment_form:
-    '#type': stripe_payment
-    '#title': 'Payment form'
-    '#stripe_source': custom
-    '#stripe_amount': '1.00'
-    '#stripe_currency': cad
-    '#stripe_customer_attributes': ''
-    '#stripe_appearance': ''
-    '#stripe_payment_intent_config': |-
-      automatic_payment_methods:
-        enabled: true
+      '#options_display': two_columns
+  scm_agreement:
+    '#type': container
+    is_membership_valid:
+      '#type': checkbox
+      '#title': Understood
+      '#description': '<p>Current Strongman Corporation membership is required and will be confirmed at check-in on competition day. <a href="https://www.strongmancorporation.com/contest-licence-1">Click here to find out more about Membership/Novice Membership information</a></p>'
+      '#description_display': before
+  payment_container:
+    '#type': webform_flexbox
+    payment_form:
+      '#type': stripe_payment
+      '#title': 'Payment form'
+      '#description': '<h5>Registration fees for the Clash of the Island are $75&nbsp;</h5>'
+      '#description_display': before
+      '#stripe_source': custom
+      '#stripe_amount': '75'
+      '#stripe_currency': CAD
+      '#stripe_customer_attributes': ''
+      '#stripe_appearance': ''
+      '#stripe_payment_intent_config': |-
+        automatic_payment_methods:
+          enabled: true
 css: ''
 javascript: ''
 settings:
-  ajax: true
+  ajax: false
   ajax_scroll_top: form
-  ajax_progress_type: throbber
-  ajax_effect: slide
+  ajax_progress_type: ''
+  ajax_effect: ''
   ajax_speed: null
   page: true
   page_submit_path: ''
   page_confirm_path: ''
   page_theme_name: ''
-  form_title: source_entity_webform
+  form_title: both
   form_submit_once: false
   form_open_message: ''
   form_close_message: ''
   form_exception_message: ''
-  form_previous_submissions: false
+  form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
   form_disable_remote_addr: false
@@ -183,9 +109,7 @@ settings:
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
   form_file_limit: ''
-  form_attributes:
-    class:
-      - isp-registration-form
+  form_attributes: {  }
   form_method: ''
   form_action: ''
   share: false
@@ -250,8 +174,8 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: modal
   confirmation_url: ''
-  confirmation_title: 'You Signed Up!'
-  confirmation_message: "<p>Success! You're signed up; we're looking forward to seeing your hard work!</p><p>&nbsp;</p><p>Good Luck!</p>"
+  confirmation_title: 'Thank you for registering!'
+  confirmation_message: "<p>You're signed up and ready to go!</p>"
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
