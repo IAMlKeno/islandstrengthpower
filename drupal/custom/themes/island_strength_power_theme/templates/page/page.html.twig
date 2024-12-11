@@ -362,6 +362,9 @@
         {% if show_social_icon %}
         <div class="col-sm-6 col-md-6">
           <div class="social-media">
+            {% if instagram_url %}
+              <a href="{{ instagram_url }}" class="instagram" target="_blank" ><i class="fab fa-instagram"></i></a>
+            {% endif %}
             {% if facebook_url %}
               <a href="{{ facebook_url }}"  class="facebook" target="_blank" ><i class="fab fa-facebook-f"></i></a>
             {% endif %}
@@ -394,8 +397,8 @@
 
       <!-- Copyright -->
       <div class="col-sm-6 col-md-6">
-        {% if copyright_text %}        
-          <p>{{copyright_text}}</p>        
+        {% if copyright_text %}
+          <p>{{copyright_text}}</p>
         {% endif %}
       </div>
       <!-- End Copyright -->

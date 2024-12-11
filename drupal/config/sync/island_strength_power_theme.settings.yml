@@ -31,7 +31,7 @@ slide_title_2: Strongman
 slide_description_2: 'Upcoming strongman competitions'
 slide_url_2: /events
 slide_image_path3:
-  - '22'
+  - '28'
 slide_title_3: Training
 slide_description_3: 'Offering group training for strongman and also personal training for both strongman and powerlifting. '
 slide_url_3: '#'
@@ -48,3 +48,4 @@ slide_title_6: ''
 slide_description_6: ''
 slide_url_6: ''
 show_on_pages: '/events,/about-us'
+instagram_url: 'https://www.instagram.com/islandstrengthandpower/'

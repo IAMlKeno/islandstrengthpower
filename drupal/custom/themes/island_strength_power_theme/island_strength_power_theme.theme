@@ -48,6 +48,8 @@ function island_strength_power_theme_preprocess_page(array &$variables): void {
     $variables['show_slideshow'] = 1;
     $variables['slider_content'] = island_strength_power_theme_get_slider_content();
   }
+
+  $variables['instagram_url'] = theme_get_setting('instagram_url');
 }
 
 /**
@@ -177,6 +179,11 @@ function island_strength_power_theme_form_system_theme_settings_alter(&$form, Fo
     '#title' => t('Show Social Icons'),
     '#default_value' => theme_get_setting('show_social_icon'),
     '#description'   => t("Show/Hide social media links"),
+  ];
+  $form['island_strength_power_theme_settings']['social_icon']['instagram_url'] = [
+    '#type' => 'textfield',
+    '#title' => t('Instagram Link'),
+    '#default_value' => theme_get_setting('instagram_url'),
   ];
   $form['island_strength_power_theme_settings']['social_icon']['facebook_url'] = [
     '#type' => 'textfield',
