@@ -32,18 +32,14 @@ slide_description_3: 'Offering group training for strongman and also personal tr
 slide_url_3: '#'
 slide_image_path_3: /images/slider/slide_03.jpg
 logo:
-  use_default: 0
+  use_default: 1
   path: 'public://wtebglogo.jpg'
 favicon:
   use_default: 1
-slide_image_path1:
-  - '4'
-slide_image_path2:
-  - '5'
-slide_image_path3:
-  - '6'
-slide_image_path4:
-  - '16'
+slide_image_path1: {  }
+slide_image_path2: {  }
+slide_image_path3: {  }
+slide_image_path4: {  }
 slide_title_4: 'Contest Prep'
 slide_description_4: 'Contest prep with Kaelan'
 slide_url_4: '#'

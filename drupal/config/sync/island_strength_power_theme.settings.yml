@@ -5,15 +5,15 @@ features:
   favicon: 1
 logo:
   use_default: 0
-  path: 'public://wtebglogo_0_0.jpg'
+  path: themes/custom/island_strength_power_theme/images/wtebglogo.jpg
 favicon:
   use_default: 0
-  path: 'public://isp_nobg_0.jpeg'
+  path: themes/custom/island_strength_power_theme/images/isp_nobg.jpeg
   mimetype: image/jpeg
 no_of_slides: '3'
 show_slideshow: 1
-show_social_icon: 0
-facebook_url: ''
+show_social_icon: 1
+facebook_url: 'https://www.facebook.com/p/Island-Strength-Power-100083332562797/'
 twitter_url: ''
 linkedin_url: ''
 pinterest_url: ''
@@ -21,12 +21,12 @@ rss_url: ''
 copyright_text: ''
 show_credit_link: 0
 slide_image_path1:
-  - '20'
-slide_title_1: 'Contest Prep'
-slide_description_1: 'Contest prep with Kaelan'
+  - '30'
+slide_title_1: 'Some other slider'
+slide_description_1: 'Cool description'
 slide_url_1: '#'
 slide_image_path2:
-  - '21'
+  - '27'
 slide_title_2: Strongman
 slide_description_2: 'Upcoming strongman competitions'
 slide_url_2: /events
