@@ -10,6 +10,7 @@ dependencies:
     - node
     - taxonomy
     - user
+    - webform
 id: events
 label: Events
 module: views
@@ -213,6 +214,48 @@ display:
     display_options:
       display_extenders: {  }
       path: events
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  page_2:
+    id: page_2
+    display_title: 'Page 2'
+    display_plugin: page
+    position: 2
+    display_options:
+      style:
+        type: default
+        options: {  }
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      defaults:
+        style: false
+        row: false
+        relationships: false
+      relationships:
+        webform_submission:
+          id: webform_submission
+          table: node_field_data
+          field: webform_submission
+          relationship: none
+          group_type: group
+          admin_label: nid
+          entity_type: node
+          plugin_id: standard
+          required: false
+      display_extenders: {  }
+      path: event/registrations_v2
     cache_metadata:
       max-age: -1
       contexts:
