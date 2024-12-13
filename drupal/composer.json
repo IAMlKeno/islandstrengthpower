@@ -25,6 +25,8 @@
         "drupal/devel_php": "^1.7",
         "drupal/drupal8_zymphonies_theme": "^3.0",
         "drupal/pathauto": "^1.13",
+        "drupal/profile": "^1.11",
+        "drupal/registration_role": "^2.0",
         "drupal/stripe_webform_payment": "^1.0",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/webform": "^6.2",
