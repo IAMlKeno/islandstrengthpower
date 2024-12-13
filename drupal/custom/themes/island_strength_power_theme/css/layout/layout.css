@@ -1,0 +1,15 @@
+.views-exposed-form {
+  border-bottom: 2px solid;
+  margin-bottom: 10px;
+}
+
+.views-exposed-form .form-item label {
+  display: block;
+}
+
+.views-data-export-feed {
+  display: inline-block;
+  position: absolute;
+  top: -14px;
+  right: 0;
+}
