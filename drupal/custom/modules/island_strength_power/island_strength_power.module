@@ -9,16 +9,22 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 
 /**
- * Implements hook_form_FORM_ID_alter()
+ * Implements hook_form_alter()
  */
 function island_strength_power_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (stripos($form_id, 'webform_submission_event_signup_form') !== false) {
-    $path = \Drupal::service('path.current')->getPath();
-    $params = \Drupal\Core\Url::fromUserInput($path)->getRouteParameters();
+  // dsm($form_id);
+  if (stripos($form_id, 'webform_submission_event_signup_form') !== false) { }
+}
 
-    if (!empty($params['node'])) {
-      $node = Node::load($params['node']);
-      $form['elements']['payment']['payment_form']['#stripe_amount'] = (string) $node->field_registration_price->value;
-    }
-  }
+/**
+ * Implements hook_form_FORM_ID_alter()
+ */
+function island_strength_power_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  array_unshift($form['account'], [
+    'sign_in' => [
+      '#type' => 'item',
+      '#markup' => '<div class="sign_in_prompt">Already have an account? <a href="/user/login">Sign in here</a></div>',
+    ],
+  ]);
+  $form['account']['#attached']['library'][] = 'island_strength_power/isp_module_theme';
 }

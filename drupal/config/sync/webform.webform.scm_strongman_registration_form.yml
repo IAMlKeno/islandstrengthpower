@@ -20,14 +20,18 @@ elements: |-
       '#type': textfield
       '#title': 'First name'
       '#title_display': before
-      '#autocomplete': 'off'
+      '#autocomplete': family-name
+      '#default_value': '[current-user:athlete_profile:field_first_name]'
     last_name:
       '#type': textfield
       '#title': 'Last name'
+      '#autocomplete': family-name
+      '#default_value': '[current-user:athlete_profile:field_last_name]'
     e_mail:
       '#type': email
       '#title': 'E-mail address'
-      '#autocomplete': ''
+      '#autocomplete': email
+      '#default_value': '[current-user:mail]'
   competition_specifics:
     '#type': webform_flexbox
     weight_class:
@@ -46,6 +50,10 @@ elements: |-
       '#title': 'T-Shirt Size'
       '#options': size
       '#options_display': two_columns
+    sex:
+      '#type': radios
+      '#title': Sex
+      '#options': sex
   scm_agreement:
     '#type': container
     is_membership_valid:

@@ -19,16 +19,21 @@ elements: |-
     first_name:
       '#type': textfield
       '#title': 'First name'
+      '#autocomplete': given-name
       '#required': true
+      '#default_value': '[current-user:athlete_profile:field_first_name]'
     last_name:
       '#type': textfield
       '#title': 'Last name'
+      '#autocomplete': family-name
       '#required': true
+      '#default_value': '[current-user:athlete_profile:field_last_name]'
     date_of_birth:
       '#type': date
       '#title': 'Date of Birth'
       '#required': true
       '#flex': 2
+      '#default_value': '[current-user:athlete_profile:field_date_of_birth]'
     age_at_time_of_competition:
       '#type': number
       '#title': 'Age at time of competition'
@@ -40,12 +45,17 @@ elements: |-
       '#type': email
       '#title': Email
       '#placeholder': you@example.com
+      '#autocomplete': email
+      '#default_value': '[current-user:mail]'
     phone_number:
       '#type': tel
       '#title': 'Phone number'
+      '#autocomplete': 'mobile tel'
+      '#default_value': '[current-user:athlete_profile:field_phone_number]'
     mailing_address:
       '#type': textarea
       '#title': 'Mailing Address'
+      '#autocomplete': address-line1
   biometric:
     '#type': webform_flexbox
     gender:
