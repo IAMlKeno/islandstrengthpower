@@ -44,7 +44,7 @@ function island_strength_power_theme_preprocess_page(array &$variables): void {
   $result = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
   $page_list_str = theme_get_setting('show_on_pages','island_strength_power_theme');
 
-  if ($show_slideshow && in_array($result, explode(',', $page_list_str))) {
+  if ($show_slideshow /*&& in_array($result, explode(',', $page_list_str))*/) {
     $variables['show_slideshow'] = 1;
     $variables['slider_content'] = island_strength_power_theme_get_slider_content();
   }

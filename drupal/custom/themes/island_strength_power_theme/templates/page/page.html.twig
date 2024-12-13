@@ -91,10 +91,8 @@
 </header>
 <!--End Header & Navbar -->
 
-{# {% if is_front and show_slideshow%} #}
-  {# {{ dump(current_page) }} #}
-{% if show_slideshow and mydebug is not empty %}
-  {# {{ dump(mydebug) }} #}
+{% if is_front and show_slideshow%}
+{# {% if show_slideshow and mydebug is not empty %} #}
   <div class="flex-slider-container">
     <div class="container">
       <div class="flexslider">
@@ -366,7 +364,7 @@
               <a href="{{ instagram_url }}" class="instagram" target="_blank" ><i class="fab fa-instagram"></i></a>
             {% endif %}
             {% if facebook_url %}
-              <a href="{{ facebook_url }}"  class="facebook" target="_blank" ><i class="fab fa-facebook-f"></i></a>
+              <a href="{{ facebook_url }}" class="facebook" target="_blank" ><i class="fab fa-facebook-f"></i></a>
             {% endif %}
             {% if twitter_url %}
               <a href="{{ twitter_url }}" class="twitter" target="_blank" ><i class="fab fa-twitter"></i></a>

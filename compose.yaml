@@ -9,7 +9,7 @@ services:
       context: ./drupal
       dockerfile: cms.Dockerfile
     ports:
-      - 8086:80
+      - 80:80
     expose:
       - 80
     volumes:
