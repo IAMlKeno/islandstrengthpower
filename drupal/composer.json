@@ -28,6 +28,7 @@
         "drupal/profile": "^1.11",
         "drupal/registration_role": "^2.0",
         "drupal/stripe_webform_payment": "^1.0",
+        "drupal/views_data_export": "^1.5",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/webform": "^6.2",
         "drupal/webform_views": "^5.5",
