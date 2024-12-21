@@ -46,6 +46,8 @@ function ajaxTest() {
       $.fn.myAjaxCallback = function (argument) {
         console.log(`RGUMENT: ${JSON.stringify(argument)}`);
         initStripe(context, argument);
+        const stripeInitBtn = context.querySelector("[data-type='data-stripe-init']");
+        stripeInitBtn.classList.add('hidden');
       };
     }
   };
@@ -68,6 +70,8 @@ function ajaxTest() {
 
     let buttonClicked = false;
     if (!webform || !payButton) return;
+
+    payButton[payButton.tagName.toLowerCase() === 'input' ? 'value' : 'textContent'] = 'Proceed';
 
     // Create paymentElementOptions and set appearance if appearanceEnabled is true
     const paymentElementOptions = { clientSecret };

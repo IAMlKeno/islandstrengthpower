@@ -12,19 +12,29 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
   if (stripos($form_id, 'webform_submission_event_signup_form') !== false) {
     $form['#attached']['library'][] = 'isp_stripe/everything_stripe';
 
-    $form['actions']['submit']['#ajax']= [
-      'callback' => 'isp_stripe_callback',
-      'event' => 'click',
-      'prevent' => 'submit',
-      // 'effect' => 'fade',
-      // 'speed' => 500,
-      // 'wrapper' => 'block-matchingblock',
-      'progress' => [
-          'type' => 'throbber',
-          'message' => t('Matching...'),
-      ]
+    // $form['actions']['submit']['#ajax'] = [
+      // $form['elements']['submit_registration_form']['submit']['#ajax'] = [
+    $form['actions']['register_pay'] = [
+      '#type' => 'button',
+      '#value' => t('Pull up Stripe'),
+      '#ajax' => [
+        'callback' => 'isp_stripe_callback',
+        'event' => 'click',
+        'prevent' => 'submit',
+        // 'effect' => 'fade',
+        // 'speed' => 500,
+        // 'wrapper' => 'block-matchingblock',
+        'progress' => [
+            'type' => 'throbber',
+            'message' => t('Matching...'),
+        ],
+      ],
+      '#attributes' => [
+        'data-type' => 'data-stripe-init',
+      ],
     ];
     $form['actions']['submit']['#attributes']['data-stripe-submit'] = 'stripe-webform-submit-button';
+    // $form['actions']['submit']['#attributes']['data-stripe-submit'] = 'stripe-webform-submit-button';
 
     $form['#attributes']['data-stripe-form-id'] = $form['#webform_id'];
 
@@ -40,9 +50,9 @@ function isp_stripe_callback(&$form, FormStateInterface $form_state, $request) {
     'competitions' => count((array) $form_state->getValue('competition')),
     'isTested' => strpos($form_state->getValue('tested_or_untested'), 'Tested') !== FALSE,
   ];
-  $amount = !empty($params) ? calculate_total($params) : 0;
+  $amount = !empty($params) ? calculate_total($params) : 0; // float
   $stripe_wrapper = \Drupal::service('stripe_webform_payment.stripe');
-  $client_secret = $stripe_wrapper->getClientSecret((string) $amount, 'CAD');
+  $client_secret = $stripe_wrapper->getClientSecret((string) $amount, 'cad');
   $stripe_settings = [
     'publishableKey' => $stripe_wrapper->getPublishableKey(),
     'clientSecret' => $client_secret['clientSecret'] ?? '',
@@ -73,18 +83,18 @@ function get_event_price($nid, bool $isTested): string|null {
 }
 
 /**
-   * @param array $params
-   *   containing event: nid, ages: int, competitions: int, isTested: bool
-   *
-   * @return float
-   *   Cost to register
-   */
+ * @param array $params
+ *   containing event: nid, ages: int, competitions: int, isTested: bool
+ *
+ * @return float
+ *   Cost to register
+ */
 function calculate_total(array $params): float {
-    $total = 0;
+  $total = 0;
 
-    $total += get_event_price($params['event'], $params['isTested']);
-    $total += ($params['ages'] - 1) * 30;
-    $total += ($params['competitions'] - 1) * 30;
+  $total += get_event_price($params['event'], $params['isTested']);
+  $total += ($params['ages'] - 1) * 30;
+  $total += ($params['competitions'] - 1) * 30;
 
-    return $total;
-  }
+  return $total;
+}
