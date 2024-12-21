@@ -28,10 +28,10 @@
 
       // const btn = document.getElementById('registration-btn');
       const btn = $('#registration-btn');
-      const val = document.getElementsByName('registration-val')[0].value;
+      // const val = document.getElementsByName('registration-val')[0].value;
       const nid = 4;
-      const title = "New Powerlifting event";
-      const form = document.getElementsByClassName('isp-registration-form').item(0);
+      // const title = "New Powerlifting event";
+      // const form = document.getElementsByClassName('isp-registration-form').item(0);
 
       // btn.addEventListener('click', (e) => {
       btn.click((e) => {
