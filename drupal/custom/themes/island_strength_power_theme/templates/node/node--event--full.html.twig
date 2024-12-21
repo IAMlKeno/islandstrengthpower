@@ -73,17 +73,25 @@
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   ]
 %}
-{# {{ attach_library('classy/node') }} #}
+
 <article{{ attributes.addClass(classes) }}>
 
   <div{{ content_attributes.addClass('node__content') }}>
     {{ content }}
   </div>
 
+  <div class="modal" id="isp-stripe-modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+  </div>
+
   <div class="event-actions">
     <button class="btn registration-btn" id="registration-btn">Register Now!</button>
     <input type='hidden' name="registration-val" value='{{ node.field_registration_price.value }}' />
   </div>
+
 
 </article>
 
@@ -93,18 +101,18 @@
   const val = document.getElementsByName('registration-val')[0].value;
   const nid = {{ node.nid.value }};
   const title = "{{ node.title.value }}";
-  const form = document.getElementsByClassName('isp-registration-form').item(0);
+  // const form = document.getElementsByClassName('isp-registration-form').item(0);
 
-  btn.addEventListener('click', (e) => {
-    console.log(`evt value: ${val}`);
-    console.log(`nid value: ${nid}`);
-    console.log(`title value: ${title}`);
+  // btn.addEventListener('click', (e) => {
+  //   console.log(`evt value: ${val}`);
+  //   console.log(`nid value: ${nid}`);
+  //   console.log(`title value: ${title}`);
 
-    //window.location.assign(`/simple-square-plugin/req-payment/${val}/${title}`);
-    if (form != null) {
-      form.classList.remove('hidden');
-      e.target.classList.add('hidden');
-      // console.log(e.target);
-    }
-  });
+  //   //window.location.assign(`/simple-square-plugin/req-payment/${val}/${title}`);
+  //   if (form != null) {
+  //     form.classList.remove('hidden');
+  //     e.target.classList.add('hidden');
+  //     // console.log(e.target);
+  //   }
+  // });
 </script>
