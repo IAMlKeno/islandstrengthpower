@@ -12,8 +12,6 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
   if (stripos($form_id, 'webform_submission_event_signup_form') !== false) {
     $form['#attached']['library'][] = 'isp_stripe/everything_stripe';
 
-    // $form['actions']['submit']['#ajax'] = [
-      // $form['elements']['submit_registration_form']['submit']['#ajax'] = [
     $form['actions']['register_pay'] = [
       '#type' => 'button',
       '#value' => t('Pull up Stripe'),
@@ -21,9 +19,6 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
         'callback' => 'isp_stripe_callback',
         'event' => 'click',
         'prevent' => 'submit',
-        // 'effect' => 'fade',
-        // 'speed' => 500,
-        // 'wrapper' => 'block-matchingblock',
         'progress' => [
             'type' => 'throbber',
             'message' => t('Matching...'),
@@ -34,25 +29,30 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
       ],
     ];
     $form['actions']['submit']['#attributes']['data-stripe-submit'] = 'stripe-webform-submit-button';
-    // $form['actions']['submit']['#attributes']['data-stripe-submit'] = 'stripe-webform-submit-button';
 
     $form['#attributes']['data-stripe-form-id'] = $form['#webform_id'];
 
     $form['elements']['event']['#default_value'] = 4;
   }
-  // dsm($form);
 }
 
 function isp_stripe_callback(&$form, FormStateInterface $form_state, $request) {
+  /* Using getUserInput to get a proper count of entity checkbox items user selects /*/
+  $form_values = $form_state->getUserInput();
   $params = [
-    'event' => $form_state->getValue('event'),
-    'ages' => count((array) $form_state->getValue('age_category')),
-    'competitions' => count((array) $form_state->getValue('competition')),
-    'isTested' => strpos($form_state->getValue('tested_or_untested'), 'Tested') !== FALSE,
+    'event' => $form_values['event'],
+    'ages' => count(
+          array_filter((array) $form_values['age_category'])
+    ),
+    'competitions' => count(
+          array_filter((array) $form_values['competition'])
+    ),
+    'isTested' => strpos($form_values['tested_or_untested'], 'Tested') !== FALSE,
   ];
-  $amount = !empty($params) ? calculate_total($params) : 0; // float
+  $amount = !empty($params) ? calculate_total($params) : 0;
+
   $stripe_wrapper = \Drupal::service('stripe_webform_payment.stripe');
-  $client_secret = $stripe_wrapper->getClientSecret((string) $amount, 'cad');
+  $client_secret = $stripe_wrapper->getClientSecret(floatval($amount) * 100, 'cad');
   $stripe_settings = [
     'publishableKey' => $stripe_wrapper->getPublishableKey(),
     'clientSecret' => $client_secret['clientSecret'] ?? '',
@@ -60,7 +60,7 @@ function isp_stripe_callback(&$form, FormStateInterface $form_state, $request) {
     'clientEmail' => $form_state->getValue('email'),
     'clientName' => $form_state->getValue('first_name') . ' ' . $form_state->getValue('last_name'),
   ];
-  // ajax debug
+
   $ajax = new AjaxResponse();
   $ajax->addCommand(new InvokeCommand(NULL, 'myAjaxCallback', [$stripe_settings]));
 
@@ -91,10 +91,14 @@ function get_event_price($nid, bool $isTested): string|null {
  */
 function calculate_total(array $params): float {
   $total = 0;
-
   $total += get_event_price($params['event'], $params['isTested']);
-  $total += ($params['ages'] - 1) * 30;
-  $total += ($params['competitions'] - 1) * 30;
+
+  if ($params['ages'] > 1) {
+    $total += ($params['ages'] - 1) * 30;
+  }
+  if ($params['competitions'] > 1) {
+    $total += ($params['competitions'] - 1) * 30;
+  }
 
   return $total;
 }

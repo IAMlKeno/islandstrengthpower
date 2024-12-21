@@ -1,44 +1,7 @@
-console.log('EVERYRTHING JS');
-function ajaxTest() {
-  console.log('ISP_STRIPE JS AJAX CALLED');
-}
 (function ($, Drupal, once) {
   let initStripeHasRun = false;
   Drupal.behaviors.ispStripePayments = {
     attach: function (context, settings) {
-      // once('myCustomBehavior', 'input.myCustomBehavior', context).forEach(function (element) {
-      //   // Apply the myCustomBehaviour effect to the elements only once.
-      // });
-
-      const modal = $('#isp-stripe-modal');
-
-      $('#registration-btn').click((evt) => {
-        evt.preventDefault();
-        console.log('JQUERY CLICKED');
-        let nid = 4;
-        let ages = 1;
-        let competitions = 2;
-        let isTested = true;
-
-        $.ajax({
-          url: Drupal.url('isp-stripe/payment'),
-          type: 'POST',
-          contentType: 'application/json',
-          dataType: 'json',
-          data: JSON.stringify({
-            event: nid,
-            ages: ages,
-            competitions: competitions,
-            isTested: isTested,
-          }),
-          success: (response) => {
-            // console.log(response.form);
-            modal.find('.modal-content').html(response.form);
-            modal.css('display', 'block');
-          }
-        });
-      });
-
       /*
       Arument can be the publishableKey, clientSecret, clientEmail,
       clientName
