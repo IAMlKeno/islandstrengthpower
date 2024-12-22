@@ -63,6 +63,22 @@ elements: |-
       '#description_display': before
   payment_container:
     '#type': webform_flexbox
+    '#attributes':
+      class:
+        - payment-element
+        - stripe-webform-payment-container
+      id: payment-element
+  event:
+    '#type': hidden
+    '#title': event
+    '#class': event_nid
+  actions:
+    '#type': webform_actions
+    '#title': 'Submit button(s)'
+    '#submit__label': 'Pay and register'
+    '#submit__attributes':
+      class:
+        - pay-button
 css: ''
 javascript: ''
 settings:

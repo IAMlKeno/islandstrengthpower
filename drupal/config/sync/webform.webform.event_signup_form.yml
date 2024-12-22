@@ -141,6 +141,7 @@ elements: |-
     '#type': hidden
     '#title': event
     '#prepopulate': true
+    '#class': event_nid
   payment_element:
     '#type': webform_flexbox
     '#attributes':
