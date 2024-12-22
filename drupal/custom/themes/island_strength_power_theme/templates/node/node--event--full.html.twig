@@ -89,23 +89,7 @@
 </article>
 
 <script>
-// TODO... don't do this...
-  const btn = document.getElementById('registration-btn');
   const nid = {{ node.nid.value }};
-  const title = "{{ node.title.value }}";
   const eventInput = document.querySelector('input[type=hidden][name=event]');
   if (eventInput != null) eventInput.value = nid;
-  console.log(`nid value: ${eventInput.value}`);
-
-  // btn.addEventListener('click', (e) => {
-  //   console.log(`evt value: ${val}`);
-  //   console.log(`title value: ${title}`);
-
-  //   //window.location.assign(`/simple-square-plugin/req-payment/${val}/${title}`);
-  //   if (form != null) {
-  //     form.classList.remove('hidden');
-  //     e.target.classList.add('hidden');
-  //     // console.log(e.target);
-  //   }
-  // });
 </script>
