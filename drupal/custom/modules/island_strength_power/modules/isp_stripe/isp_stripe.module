@@ -9,7 +9,7 @@ use Drupal\node\Entity\Node;
  * Implements hook_form_alter()
  */
 function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  if (stripos($form_id, 'webform_submission_event_signup_form') !== false) {
+  if (preg_match('/webform_submission_(.*signup_form|.*registration_form)/', $form_id)) {
     $form['#attached']['library'][] = 'isp_stripe/everything_stripe';
 
     $form['actions']['register_pay'] = [
@@ -31,8 +31,6 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
     $form['actions']['submit']['#attributes']['data-stripe-submit'] = 'stripe-webform-submit-button';
 
     $form['#attributes']['data-stripe-form-id'] = $form['#webform_id'];
-
-    $form['elements']['event']['#default_value'] = 4; // get event nid
   }
 }
 

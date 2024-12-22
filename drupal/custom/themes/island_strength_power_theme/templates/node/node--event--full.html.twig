@@ -91,14 +91,14 @@
 <script>
 // TODO... don't do this...
   const btn = document.getElementById('registration-btn');
-  const val = document.getElementsByName('registration-val')[0].value;
   const nid = {{ node.nid.value }};
   const title = "{{ node.title.value }}";
-  // const form = document.getElementsByClassName('isp-registration-form').item(0);
+  const eventInput = document.querySelector('input[type=hidden][name=event]');
+  if (eventInput != null) eventInput.value = nid;
+  console.log(`nid value: ${eventInput.value}`);
 
   // btn.addEventListener('click', (e) => {
   //   console.log(`evt value: ${val}`);
-  //   console.log(`nid value: ${nid}`);
   //   console.log(`title value: ${title}`);
 
   //   //window.location.assign(`/simple-square-plugin/req-payment/${val}/${title}`);
