@@ -1,0 +1,22 @@
+.webform-element-description {
+  color: white;
+  font-size: small;
+}
+
+@media only screen and (max-width: 600px) {
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 95%;
+  }
+
+  form label {
+    display: block;
+  }
+}
+
+
+/* Exposed forms - (filters) */
+.views-exposed-form .form-item label {
+  display: inline-block;
+}
