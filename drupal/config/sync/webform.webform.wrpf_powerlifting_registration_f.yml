@@ -1,4 +1,4 @@
-uuid: 3b6187ab-8ff6-4f70-8d78-73e06b1b448f
+uuid: 532454c7-02b6-448a-ac30-accd66f023d7
 langcode: en
 status: open
 dependencies: {  }
@@ -8,8 +8,8 @@ close: null
 uid: 1
 template: false
 archive: false
-id: event_signup_form
-title: 'WRPF Powerlifting Registration Form'
+id: wrpf_powerlifting_registration_f
+title: 'WRPF Powerlifting Registration Form Test'
 description: ''
 categories:
   - 'Event Registration'
@@ -141,20 +141,6 @@ elements: |-
     '#type': hidden
     '#title': event
     '#prepopulate': true
-  payment_element:
-    '#type': webform_flexbox
-    '#attributes':
-      class:
-        - payment-element
-        - stripe-webform-payment-container
-      id: payment-element
-  actions:
-    '#type': webform_actions
-    '#title': 'Submit button(s)'
-    '#submit__label': 'Pay and register'
-    '#submit__attributes':
-      class:
-        - pay-button
 css: ''
 javascript: ''
 settings:

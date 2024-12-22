@@ -11,6 +11,8 @@ dependencies:
     - field.field.node.event.field_location
     - field.field.node.event.field_registration_form
     - field.field.node.event.field_registration_price
+    - field.field.node.event.field_tested_price
+    - field.field.node.event.field_untested_price
     - field.field.node.event.layout_builder__layout
     - node.type.event
   module:
@@ -138,4 +140,6 @@ hidden:
   field_location: true
   field_registration_form: true
   field_registration_price: true
+  field_tested_price: true
+  field_untested_price: true
   layout_builder__layout: true

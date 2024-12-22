@@ -32,7 +32,7 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
 
     $form['#attributes']['data-stripe-form-id'] = $form['#webform_id'];
 
-    $form['elements']['event']['#default_value'] = 4;
+    $form['elements']['event']['#default_value'] = 4; // get event nid
   }
 }
 
@@ -74,12 +74,15 @@ function get_event_price($nid, bool $isTested): string|null {
     if ($isTested && $node->hasField('field_tested_price')) {
       return $node->get('field_tested_price')->value;
     }
-    else {
+    elseif ($node->hasField('field_untested_price')) {
       return $node->get('field_untested_price')->value;
+    }
+    elseif ($node->hasField('field_registration_price')) {
+      return $node->get('field_registration_price')->value;
     }
   }
 
-  return NULL;
+  return '0';
 }
 
 /**
@@ -93,10 +96,10 @@ function calculate_total(array $params): float {
   $total = 0;
   $total += get_event_price($params['event'], $params['isTested']);
 
-  if ($params['ages'] > 1) {
+  if (!empty($params['ages']) && $params['ages'] > 1) {
     $total += ($params['ages'] - 1) * 30;
   }
-  if ($params['competitions'] > 1) {
+  if (!empty($params['competitions']) && $params['competitions'] > 1) {
     $total += ($params['competitions'] - 1) * 30;
   }
 

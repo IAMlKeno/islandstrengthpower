@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.event.field_location
     - field.field.node.event.field_registration_form
     - field.field.node.event.field_registration_price
+    - field.field.node.event.field_tested_price
+    - field.field.node.event.field_untested_price
     - field.field.node.event.layout_builder__layout
     - node.type.event
   module:
@@ -118,6 +120,44 @@ third_party_settings:
                 label: hidden
                 settings:
                   view_mode: teaser
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          2c3861f8-fcdf-49f4-a86e-8fd5117ab6e3:
+            uuid: 2c3861f8-fcdf-49f4-a86e-8fd5117ab6e3
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_tested_price'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: number_decimal
+                label: above
+                settings:
+                  thousand_separator: ''
+                  decimal_separator: .
+                  scale: 2
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          b60520a9-b5f2-4e4b-b3d6-be434983a354:
+            uuid: b60520a9-b5f2-4e4b-b3d6-be434983a354
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_untested_price'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: number_decimal
+                label: above
+                settings:
+                  thousand_separator: ''
+                  decimal_separator: .
+                  scale: 2
+                  prefix_suffix: true
                 third_party_settings: {  }
             weight: 2
             additional: {  }
@@ -247,6 +287,28 @@ content:
     third_party_settings: {  }
     weight: 105
     region: content
+  field_tested_price:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 109
+    region: first
+  field_untested_price:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 110
+    region: first
   links:
     settings: {  }
     third_party_settings: {  }

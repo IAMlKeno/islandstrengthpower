@@ -63,19 +63,6 @@ elements: |-
       '#description_display': before
   payment_container:
     '#type': webform_flexbox
-    payment_form:
-      '#type': stripe_payment
-      '#title': 'Payment form'
-      '#description': '<h5>Registration fees for the Clash of the Island are $75&nbsp;</h5>'
-      '#description_display': before
-      '#stripe_source': custom
-      '#stripe_amount': '75'
-      '#stripe_currency': CAD
-      '#stripe_customer_attributes': ''
-      '#stripe_appearance': ''
-      '#stripe_payment_intent_config': |-
-        automatic_payment_methods:
-          enabled: true
 css: ''
 javascript: ''
 settings:

@@ -21,6 +21,7 @@ module:
   filter: 0
   image: 0
   island_strength_power: 0
+  isp_stripe: 0
   layout_builder: 0
   layout_discovery: 0
   link: 0
