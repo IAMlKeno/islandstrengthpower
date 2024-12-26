@@ -14,7 +14,7 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
 
     $form['actions']['register_pay'] = [
       '#type' => 'button',
-      '#value' => t('Pull up Stripe'),
+      '#value' => t('Pay and register'),
       '#ajax' => [
         'callback' => 'isp_stripe_callback',
         'event' => 'click',
@@ -29,6 +29,7 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
       ],
     ];
     $form['actions']['submit']['#attributes']['data-stripe-submit'] = 'stripe-webform-submit-button';
+    $form['actions']['submit']['#attributes']['class'][] = 'hidden';
 
     $form['#attributes']['data-stripe-form-id'] = $form['#webform_id'];
   }

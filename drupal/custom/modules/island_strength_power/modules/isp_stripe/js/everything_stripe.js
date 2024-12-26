@@ -7,10 +7,13 @@
       clientName
        */
       $.fn.myAjaxCallback = function (argument) {
-        console.log(`RGUMENT: ${JSON.stringify(argument)}`);
-        initStripe(context, argument);
+        // console.log(`RGUMENT: ${JSON.stringify(argument)}`);
         const stripeInitBtn = context.querySelector("[data-type='data-stripe-init']");
+        const stripePayBtn = context.querySelector("[data-stripe-submit='stripe-webform-submit-button']");
         stripeInitBtn.classList.add('hidden');
+        stripePayBtn.classList.remove('hidden');
+
+        initStripe(context, argument);
       };
     }
   };
@@ -77,7 +80,6 @@
       const { error, paymentIntent } = await stripe.confirmPayment({
         elements,
         confirmParams: { receipt_email: clientEmail },
-        metadata: { customer_name: clientName },
         redirect: 'if_required',
       });
 

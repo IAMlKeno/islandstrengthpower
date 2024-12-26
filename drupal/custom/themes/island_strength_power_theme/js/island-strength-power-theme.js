@@ -9,11 +9,12 @@
   Drupal.behaviors.islandStrengthPowerTheme = {
     attach (context, settings) {
       const registrationForm = document.getElementsByClassName('isp-registration-form').item(0);
+      const stripeContainer = document.querySelector('.stripe-webform-payment-container');
       const btn = $('#registration-btn');
 
       if (registrationForm != null) {
         const path = window.location.pathname;
-        if (path.match(/\/event\/\w+/) != null) {
+        if (path.match(/\/event\/\w+/) != null && stripeContainer.children.length == 0) {
           registrationForm.classList.add('hidden');
 
           btn.click((e) => {

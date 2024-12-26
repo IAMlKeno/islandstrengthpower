@@ -80,6 +80,11 @@
     {{ content }}
   </div>
 
+  <div id="payment-message" class="hidden">
+    <div class="messages__content">
+    </div>
+  </div>
+
   <div class="event-actions">
     <button class="btn registration-btn" id="registration-btn">Register Now!</button>
     <input type='hidden' name="registration-val" value='{{ node.field_registration_price.value }}' />
