@@ -159,10 +159,10 @@ elements: |-
 css: ''
 javascript: ''
 settings:
-  ajax: true
+  ajax: false
   ajax_scroll_top: form
-  ajax_progress_type: throbber
-  ajax_effect: slide
+  ajax_progress_type: ''
+  ajax_effect: ''
   ajax_speed: null
   page: true
   page_submit_path: ''
