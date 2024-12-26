@@ -542,15 +542,18 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            webform_submission_bulk_form: webform_submission_bulk_form
+            view_webform_submission: view_webform_submission
             webform_submission_value: webform_submission_value
             webform_submission_value_1: webform_submission_value_1
+            webform_submission_value_4: webform_submission_value_4
             webform_submission_value_2: webform_submission_value_2
             webform_submission_value_3: webform_submission_value_3
-            webform_submission_value_4: webform_submission_value_4
+            title: title
           default: '-1'
           info:
-            webform_submission_bulk_form:
+            view_webform_submission:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -563,6 +566,13 @@ display:
               empty_column: false
               responsive: ''
             webform_submission_value_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            webform_submission_value_4:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -570,20 +580,20 @@ display:
               empty_column: false
               responsive: ''
             webform_submission_value_2:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             webform_submission_value_3:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            webform_submission_value_4:
+            title:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -1069,8 +1079,31 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      pager:
+        type: full
+        options:
+          offset: 0
+          pagination_heading_level: h4
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: true
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       defaults:
         css_class: false
+        pager: false
       css_class: table
       display_extenders: {  }
       path: event/registrations
