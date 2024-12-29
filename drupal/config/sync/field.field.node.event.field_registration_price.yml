@@ -10,7 +10,7 @@ field_name: field_registration_price
 entity_type: node
 bundle: event
 label: 'Registration Price'
-description: ''
+description: 'For strongman events'
 required: false
 translatable: false
 default_value: {  }

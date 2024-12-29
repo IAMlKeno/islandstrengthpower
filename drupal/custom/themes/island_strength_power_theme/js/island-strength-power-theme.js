@@ -55,9 +55,8 @@
         } else {
           return unTestedAmount;
         }
-
-        return 0;
       };
+
       function getAgeAdditions() {
         let ages = $('input[name^="age_category"]:checked').length;
         return ages != 0 ? (ages - 1) * 30 : 0;

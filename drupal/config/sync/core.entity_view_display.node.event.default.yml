@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.event.field_banner_image
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_description
     - field.field.node.event.field_event_location
     - field.field.node.event.field_event_type
     - field.field.node.event.field_location
@@ -18,6 +19,7 @@ dependencies:
     - image
     - layout_builder
     - layout_discovery
+    - text
     - user
     - webform
 third_party_settings:
@@ -25,6 +27,32 @@ third_party_settings:
     enabled: true
     allow_custom: true
     sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: 'Event Title'
+          context_mapping: {  }
+        components:
+          4208bb7e-b9c0-4213-9851-3ce3f874f63e:
+            uuid: 4208bb7e-b9c0-4213-9851-3ce3f874f63e
+            region: content
+            configuration:
+              id: 'field_block:node:event:title'
+              label: 'Event Title'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
       -
         layout_id: layout_twocol_section
         layout_settings:
@@ -161,6 +189,21 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 2
             additional: {  }
+          003288d3-ed42-4e87-9341-8a9084a2d4b2:
+            uuid: 003288d3-ed42-4e87-9341-8a9084a2d4b2
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_event_description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -243,6 +286,13 @@ content:
     third_party_settings: {  }
     weight: 103
     region: content
+  field_event_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 111
+    region: first
   field_event_location:
     type: entity_reference_label
     label: above

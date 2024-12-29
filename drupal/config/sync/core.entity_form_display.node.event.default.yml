@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.event.field_banner_image
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_description
     - field.field.node.event.field_event_location
     - field.field.node.event.field_event_type
     - field.field.node.event.field_location
@@ -18,6 +19,7 @@ dependencies:
   module:
     - image
     - path
+    - text
     - webform
 id: node.event.default
 targetEntityType: node
@@ -44,6 +46,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_event_description:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_event_location:
     type: options_select
     weight: 8
@@ -52,13 +62,13 @@ content:
     third_party_settings: {  }
   field_event_type:
     type: options_buttons
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_registration_form:
     type: webform_entity_reference_select
-    weight: 26
+    weight: 15
     region: content
     settings:
       default_data: true
@@ -66,21 +76,21 @@ content:
     third_party_settings: {  }
   field_registration_price:
     type: number
-    weight: 10
+    weight: 12
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_tested_price:
     type: number
-    weight: 27
+    weight: 13
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_untested_price:
     type: number
-    weight: 28
+    weight: 14
     region: content
     settings:
       placeholder: ''

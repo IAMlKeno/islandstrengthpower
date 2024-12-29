@@ -10,7 +10,7 @@ field_name: field_untested_price
 entity_type: node
 bundle: event
 label: 'Untested Price'
-description: ''
+description: 'For powerlifting events'
 required: false
 translatable: false
 default_value: {  }
@@ -18,6 +18,6 @@ default_value_callback: ''
 settings:
   min: null
   max: null
-  prefix: ''
+  prefix: $
   suffix: ''
 field_type: decimal
