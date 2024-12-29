@@ -37,6 +37,7 @@ module:
   responsive_image: 0
   rest: 0
   serialization: 0
+  simple_sitemap: 0
   simple_square_plugin: 0
   stripe: 0
   stripe_webform_payment: 0
