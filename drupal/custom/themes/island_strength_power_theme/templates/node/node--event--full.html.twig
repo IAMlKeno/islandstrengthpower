@@ -97,7 +97,7 @@
   const eventInput = document.querySelector('input[type=hidden][name=event]');
   if (eventInput != null) eventInput.value = nid;
 
-  const registrationAmount = {{ node.field_registration_price.value ?? 0 }};
+  const registrationAmount = {{ (node.field_registration_price.value is not empty) ? node.field_registration_price.value : 0 }};
   const testedAmount = {{ (node.field_tested_price.value is not empty) ? node.field_tested_price.value : 0 }};
   const unTestedAmount = {{ (node.field_untested_price.value is not empty) ? node.field_untested_price.value : 0 }};
 </script>

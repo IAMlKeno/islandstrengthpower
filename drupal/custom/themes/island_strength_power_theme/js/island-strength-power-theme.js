@@ -25,7 +25,6 @@
         }
 
         $( registrationForm ).change((e) => {
-            console.log(e.target.value);
             const amount = $('#charge-amount-content');
             let calculatedAmount = calculateDisplayAmount();
 
