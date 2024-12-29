@@ -32,6 +32,15 @@ function isp_stripe_form_alter(&$form, FormStateInterface $form_state, $form_id)
     $form['actions']['submit']['#attributes']['class'][] = 'hidden';
 
     $form['#attributes']['data-stripe-form-id'] = $form['#webform_id'];
+
+    $total_display = [
+      'charge_amount' => [
+        '#type' => 'item',
+        '#markup' => '<div class="charge-amount-container">You will be charged: $<span id="charge-amount-content">0.00</span>CAD</div>',
+      ]
+    ];
+
+    array_unshift($form['actions'], $total_display);
   }
 }
 

@@ -87,7 +87,6 @@
 
   <div class="event-actions">
     <button class="btn registration-btn" id="registration-btn">Register Now!</button>
-    <input type='hidden' name="registration-val" value='{{ node.field_registration_price.value }}' />
   </div>
 
 
@@ -97,4 +96,8 @@
   const nid = {{ node.nid.value }};
   const eventInput = document.querySelector('input[type=hidden][name=event]');
   if (eventInput != null) eventInput.value = nid;
+
+  const registrationAmount = {{ node.field_registration_price.value ?? 0 }};
+  const testedAmount = {{ node.field_tested_price.value ?? 0 }};
+  const unTestedAmount = {{ node.field_untested_price.value ?? 0 }};
 </script>

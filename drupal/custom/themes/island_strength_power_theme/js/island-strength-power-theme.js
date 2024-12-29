@@ -23,6 +23,44 @@
             $( e.target ).fadeOut();
           });
         }
+
+        $( registrationForm ).change((e) => {
+            console.log(e.target.value);
+            const amount = $('#charge-amount-content');
+            let calculatedAmount = calculateDisplayAmount();
+
+            amount.text(calculatedAmount);
+            return;
+          });
+        }
+
+      function calculateDisplayAmount() {
+        let calculatedAmount = getEventPrice();
+        calculatedAmount += getAgeAdditions();
+        calculatedAmount += getCategoryAdditions();
+
+        return calculatedAmount;
+      }
+
+      function getEventPrice() {
+        let checked = document.querySelector('input[name="tested_or_untested"]:checked');
+        let tested = checked != null && checked.value != null ? checked.value.match(/Tested/) : false;
+
+        if (tested != null) {
+          return testedAmount;
+        } else {
+          return unTestedAmount;
+        }
+
+        return 0;
+      };
+      function getAgeAdditions() {
+        let ages = $('input[name^="age_category"]:checked').length;
+        return ages != 0 ? (ages - 1) * 30 : 0;
+      }
+      function getCategoryAdditions() {
+        let competitions = $('input[name^="competition"]:checked').length;
+        return competitions != 0 ? (competitions - 1) * 30 : 0;
       }
 
     }

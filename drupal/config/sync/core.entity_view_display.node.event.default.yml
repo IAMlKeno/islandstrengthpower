@@ -30,7 +30,7 @@ third_party_settings:
         layout_settings:
           label: 'Promotion and Info'
           context_mapping: {  }
-          column_widths: 75-25
+          column_widths: 67-33
         components:
           f7d87cd4-6bcb-46e7-bd5e-a67cfaa6634c:
             uuid: f7d87cd4-6bcb-46e7-bd5e-a67cfaa6634c
@@ -48,7 +48,7 @@ third_party_settings:
                 label: hidden
                 settings:
                   image_link: ''
-                  image_style: ''
+                  image_style: event_full_image
                   image_loading:
                     attribute: lazy
                 third_party_settings: {  }
