@@ -43,6 +43,10 @@
       }
 
       function getEventPrice() {
+        if (document.querySelector('input[name="tested_or_untested"]') == null) {
+          return registrationAmount;
+        }
+
         let checked = document.querySelector('input[name="tested_or_untested"]:checked');
         let tested = checked != null && checked.value != null ? checked.value.match(/Tested/) : false;
 

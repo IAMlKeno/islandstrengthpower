@@ -242,5 +242,4 @@ function island_strength_power_theme_form_system_theme_settings_alter(&$form, Fo
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
 function island_strength_power_theme_preprocess_node(array &$variables): void {
-
 }
