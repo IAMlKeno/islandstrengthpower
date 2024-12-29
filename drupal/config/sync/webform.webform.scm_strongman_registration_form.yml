@@ -22,16 +22,19 @@ elements: |-
       '#title_display': before
       '#autocomplete': family-name
       '#default_value': '[current-user:athlete_profile:field_first_name]'
+      '#required': true
     last_name:
       '#type': textfield
       '#title': 'Last name'
       '#autocomplete': family-name
       '#default_value': '[current-user:athlete_profile:field_last_name]'
+      '#required': true
     e_mail:
       '#type': email
       '#title': 'E-mail address'
       '#autocomplete': email
       '#default_value': '[current-user:mail]'
+      '#required': true
   competition_specifics:
     '#type': webform_flexbox
     weight_class:
@@ -45,15 +48,18 @@ elements: |-
         sort:
           field: name
           direction: asc
+      '#required': true
     shirt_size:
       '#type': webform_radios_other
       '#title': 'T-Shirt Size'
       '#options': size
       '#options_display': two_columns
+      '#required': true
     sex:
       '#type': radios
       '#title': Sex
       '#options': sex
+      '#required': true
   scm_agreement:
     '#type': container
     is_membership_valid:
@@ -61,6 +67,7 @@ elements: |-
       '#title': Understood
       '#description': '<p>Current Strongman Corporation membership is required and will be confirmed at check-in on competition day. <a href="https://www.strongmancorporation.com/contest-licence-1">Click here to find out more about Membership/Novice Membership information</a></p>'
       '#description_display': before
+      '#required': true
   payment_container:
     '#type': webform_flexbox
     '#attributes':

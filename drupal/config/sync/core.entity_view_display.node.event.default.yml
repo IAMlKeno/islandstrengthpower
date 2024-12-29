@@ -156,12 +156,15 @@ third_party_settings:
             region: first
             configuration:
               id: 'field_block:node:event:field_tested_price'
-              label_display: '0'
+              label: 'Tested Price:'
+              label_display: visible
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: number_decimal
-                label: above
+                label: hidden
                 settings:
                   thousand_separator: ''
                   decimal_separator: .
@@ -175,12 +178,15 @@ third_party_settings:
             region: first
             configuration:
               id: 'field_block:node:event:field_untested_price'
-              label_display: '0'
+              label: 'Untested Price:'
+              label_display: visible
+              provider: layout_builder
               context_mapping:
                 entity: layout_builder.entity
+                view_mode: view_mode
               formatter:
                 type: number_decimal
-                label: above
+                label: hidden
                 settings:
                   thousand_separator: ''
                   decimal_separator: .
@@ -202,6 +208,28 @@ third_party_settings:
                 label: above
                 settings: {  }
                 third_party_settings: {  }
+            weight: 4
+            additional: {  }
+          a7a7cce3-0158-4bdc-874b-252d7345a6c8:
+            uuid: a7a7cce3-0158-4bdc-874b-252d7345a6c8
+            region: first
+            configuration:
+              id: 'field_block:node:event:field_registration_price'
+              label: 'Registration Price:'
+              label_display: visible
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_decimal
+                label: hidden
+                settings:
+                  thousand_separator: ''
+                  decimal_separator: .
+                  scale: 2
+                  prefix_suffix: true
+                third_party_settings: {  }
             weight: 3
             additional: {  }
         third_party_settings: {  }
@@ -211,25 +239,6 @@ third_party_settings:
           label: 'Event Information'
           context_mapping: {  }
         components:
-          a7a7cce3-0158-4bdc-874b-252d7345a6c8:
-            uuid: a7a7cce3-0158-4bdc-874b-252d7345a6c8
-            region: content
-            configuration:
-              id: 'field_block:node:event:field_registration_price'
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              formatter:
-                type: number_decimal
-                label: above
-                settings:
-                  thousand_separator: ''
-                  decimal_separator: .
-                  scale: 2
-                  prefix_suffix: true
-                third_party_settings: {  }
-            weight: 4
-            additional: {  }
           06733217-07fc-4609-a435-a0b3003576b6:
             uuid: 06733217-07fc-4609-a435-a0b3003576b6
             region: content

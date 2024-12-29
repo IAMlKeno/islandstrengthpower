@@ -47,11 +47,13 @@ elements: |-
       '#placeholder': you@example.com
       '#autocomplete': email
       '#default_value': '[current-user:mail]'
+      '#required': true
     phone_number:
       '#type': tel
       '#title': 'Phone number'
       '#autocomplete': 'mobile tel'
       '#default_value': '[current-user:athlete_profile:field_phone_number]'
+      '#required': true
     mailing_address:
       '#type': textarea
       '#title': 'Mailing Address'
@@ -62,12 +64,14 @@ elements: |-
       '#type': radios
       '#title': Sex
       '#options': sex
+      '#required': true
     tested_or_untested:
       '#type': radios
       '#title': 'Tested or Untested'
       '#options':
         'Tested (150)': 'Tested (150)'
         'Untested (125)': 'Untested (125)'
+      '#required': true
     weight_class:
       '#type': webform_entity_radios
       '#title': 'Weight Class'
@@ -80,6 +84,7 @@ elements: |-
         sort:
           field: name
           direction: asc
+      '#required': true
   competition_specifics:
     '#type': webform_flexbox
     division:
@@ -94,6 +99,7 @@ elements: |-
         sort:
           field: name
           direction: asc
+      '#required': true
     age_category:
       '#type': webform_entity_checkboxes
       '#title': 'Age Category'
@@ -108,6 +114,7 @@ elements: |-
         sort:
           field: name
           direction: asc
+      '#required': true
     competition:
       '#type': webform_entity_checkboxes
       '#title': Competition
@@ -121,6 +128,7 @@ elements: |-
         sort:
           field: name
           direction: asc
+      '#required': true
   wrpf_container:
     '#type': webform_flexbox
     wrpf:
