@@ -9,9 +9,6 @@ module:
   contextual: 0
   csv_serialization: 0
   dblog: 0
-  devel: 0
-  devel_kint_extras: 0
-  devel_php: 0
   dynamic_page_cache: 0
   editor: 0
   entity: 0
@@ -38,7 +35,6 @@ module:
   rest: 0
   serialization: 0
   simple_sitemap: 0
-  simple_square_plugin: 0
   stripe: 0
   stripe_webform_payment: 0
   system: 0
