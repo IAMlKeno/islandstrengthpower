@@ -14,9 +14,9 @@ services:
       - 80
     volumes:
       - ./drupal/files:/opt/drupal/web/sites/default/files
-      - ./drupal/custom/modules:/opt/drupal/web/modules/custom
-      - ./drupal/custom/themes:/opt/drupal/web/themes/custom
-      - ./drupal/config/sync:/opt/drupal/config/sync
+      - ./drupal/siteground/modules/custom:/opt/drupal/web/modules/custom
+      - ./drupal/siteground/themes/custom:/opt/drupal/web/themes/custom
+      - ./drupal/siteground/config/sync:/opt/drupal/config/sync
     networks:
       - isp-network
   db:
